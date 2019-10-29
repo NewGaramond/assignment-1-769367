@@ -3,7 +3,12 @@
 import codecs
 import sys
 import inspect
+import json, pika
 
+import sys, os, inspect
+
+import pika, time
+import sys, os, inspect
 from pymongo import MongoClient
 from bson import ObjectId
 import sys, os, inspect
@@ -24,24 +29,12 @@ MONGO_PORT = '27017'
 MONGO_DB   = 'water_quality_uk'
 
 pathapp = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
-sys.path.append(pathapp + "/config")
-
-
-import pika, time
-import sys, os, inspect
 
 pathapp = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
-sys.path.append(pathapp + "/config")
 
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-import json, pika
 
-import sys, os, inspect
 
 pathapp = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
-sys.path.append(pathapp + "/config")
-sys.path.append(pathapp + "/model")
 
 
 
@@ -122,45 +115,6 @@ class MongoDb(object):
         newRowId = self.dbname[collection].insert(data)
         print("New Row id: " + repr(newRowId))
         self.moConn.close()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 if __name__ == '__main__':
     argNames = ['command', 'task']
